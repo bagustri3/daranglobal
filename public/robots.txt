@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /companies
+Allow: /companies/daran-furniture
+Allow: /companies/dry-x
+Allow: /companies/orminia
+Allow: /contact
+Allow: /certifications
+
+Sitemap: https://example.com/sitemap.xml

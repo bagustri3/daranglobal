@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,13 +28,16 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link 
             href="/" 
-            className={`text-2xl font-bold transition-all duration-300 hover:scale-105 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
-            }`}
+            className="transition-all duration-300 hover:scale-105"
           >
-            <span className="font-['Pacifico'] transform transition-all duration-300 hover:text-red-600">
-              Daran Global
-            </span>
+            <Image
+              src="https://static.readdy.ai/image/76c4eea5daeee001f01703b57fdded2a/d9c7d313316010eba95a2a96bec2f1b3.png"
+              alt="Daran Global"
+              width={180}
+              height={60}
+              className="h-12 w-auto"
+              priority
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
