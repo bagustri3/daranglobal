@@ -94,7 +94,7 @@ export default function Footer() {
                   <i className="ri-phone-line text-red-400 transition-transform duration-300 group-hover:scale-110"></i>
                 </div>
                 <span className="text-gray-300 transition-colors duration-300 group-hover:text-white">
-                  +1 (555) 123-4567
+                  +90 (532) 451-3916
                 </span>
               </div>
               <div className="flex items-center space-x-3 group">
@@ -110,7 +110,8 @@ export default function Footer() {
                   <i className="ri-map-pin-line text-red-400 transition-transform duration-300 group-hover:scale-110"></i>
                 </div>
                 <span className="text-gray-300 transition-colors duration-300 group-hover:text-white">
-                  123 Business Ave, Corporate City
+                  CAMİ ŞERİF NEIGHBORHOOD 5225 ST. OTHELLO PLAZA NO: 18 INNER
+                  DOOR NO: 1 AKDENİZ/ MERSİN
                 </span>
               </div>
             </div>

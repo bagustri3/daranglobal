@@ -118,11 +118,11 @@ export default function HomePage() {
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center p-6 bg-gray-50 rounded-lg hover-lift">
-                    <div className="text-3xl font-bold text-red-600 mb-2 animate-pulse-glow">25+</div>
+                    <div className="text-3xl font-bold text-red-600 mb-2 animate-pulse-glow">5+</div>
                     <div className="text-gray-700 font-medium">Years Experience</div>
                   </div>
                   <div className="text-center p-6 bg-gray-50 rounded-lg hover-lift">
-                    <div className="text-3xl font-bold text-red-600 mb-2 animate-pulse-glow">500+</div>
+                    <div className="text-3xl font-bold text-red-600 mb-2 animate-pulse-glow">100+</div>
                     <div className="text-gray-700 font-medium">Projects Completed</div>
                   </div>
                 </div>
