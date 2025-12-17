@@ -8,4 +8,4 @@ Allow: /companies/orminia
 Allow: /contact
 Allow: /certifications
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://daranglobal.com/sitemap.xml
