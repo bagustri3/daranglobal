@@ -47,13 +47,13 @@ export default function RootLayout({
         <Script 
           src="https://readdy.ai/api/public/assistant/widget?projectId=46def1a4-bb4b-4055-846b-8427e6f59231"
           strategy="afterInteractive"
-          mode="hybrid"
-          voice-show-transcript="true"
-          theme="light"
-          size="compact"
-          accent-color="#0d9488"
-          button-base-color="#134e4a"
-          button-accent-color="#fbbf24"
+          data-mode="hybrid"
+          data-voice-show-transcript="true"
+          data-theme="light"
+          data-size="compact"
+          data-accent-color="#0d9488"
+          data-button-base-color="#134e4a"
+          data-button-accent-color="#fbbf24"
         />
       </body>
     </html>
