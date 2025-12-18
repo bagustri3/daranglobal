@@ -13,11 +13,11 @@ interface CompanyCardProps {
 export default function CompanyCard({ name, description, industry, website, image, companySlug }: CompanyCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group animate-fade-in-up">
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden bg-black/50">
         <img 
           src={image}
           alt={name}
-          className="w-full h-64 object-cover object-top transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-64 object-fit object-top transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>

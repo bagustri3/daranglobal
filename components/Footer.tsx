@@ -64,9 +64,10 @@ export default function Footer() {
                   href: "/companies/daran-furniture",
                   label: "Daran Furniture",
                 },
-                { href: "/companies/dry-x", label: "Dry X" },
+                { href: "/companies/cocomodo", label: "Cocomodo" },
                 { href: "/companies/orminia", label: "Orminia" },
                 { href: "/companies/fantechdrill", label: "Fantech Drill" },
+                { href: "/companies/dry-x", label: "Dry X" },
               ].map((item, index) => (
                 <li
                   key={item.href}

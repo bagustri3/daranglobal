@@ -1,145 +1,175 @@
-'use client';
-
 import Link from 'next/link';
-import { useState } from 'react';
+
+export const metadata = {
+  title: 'Daran Furniture - Premium Furniture & Interior Design Solutions',
+  description:
+    'Discover Daran Furniture, a leader in premium furniture manufacturing and interior design. Explore our bespoke furniture collections and services for residential and commercial spaces.',
+  opengraph: {
+    title: 'Daran Furniture - Premium Furniture & Interior Design Solutions',
+    description:
+      'Discover Daran Furniture, a leader in premium furniture manufacturing and interior design. Explore our bespoke furniture collections and services for residential and commercial spaces.',
+    url: 'https://daranglobal.com/companies/daran-furniture',
+    siteName: 'Daran Global',
+    images: [
+      {
+        url: 'https://daranglobal.com/og-images/daran-furniture-og.jpg',
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 export default function DaranFurniturePage() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
-  
+
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Daran Furniture",
-    "url": `${siteUrl}/companies/daran-furniture`,
-    "description": "Premium furniture and interior design solutions for residential and commercial spaces with contemporary aesthetics and superior craftsmanship.",
-    "brand": {
-      "@type": "Brand",
-      "name": "Daran Furniture"
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Daran Furniture',
+    url: `${siteUrl}/companies/daran-furniture`,
+    description:
+      'Premium furniture and interior design solutions for residential and commercial spaces with contemporary aesthetics and superior craftsmanship.',
+    brand: {
+      '@type': 'Brand',
+      name: 'Daran Furniture',
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    }
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+    },
   };
 
-  const [showModal, setShowModal] = useState(false);
-  const [selectedCatalog, setSelectedCatalog] = useState('');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    catalog: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
+  // const [showModal, setShowModal] = useState(false);
+  // const [selectedCatalog, setSelectedCatalog] = useState('');
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   company: '',
+  //   phone: '',
+  //   catalog: '',
+  // });
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [submitStatus, setSubmitStatus] = useState('');
 
   const products = [
     {
-      name: "Executive Office Collection",
-      description: "Premium executive desks, chairs, and storage solutions designed for modern corporate environments.",
-      image: "https://readdy.ai/api/search-image?query=Luxury%20executive%20office%20furniture%20collection%20with%20premium%20wooden%20desk%2C%20leather%20executive%20chair%2C%20and%20modern%20storage%20cabinets%2C%20sophisticated%20corporate%20interior%20design%2C%20high-end%20office%20furniture%20showroom&width=400&height=300&seq=exec-office&orientation=landscape",
-      catalogName: "Executive Office Catalog"
+      name: 'Executive Office Collection',
+      description:
+        'Premium executive desks, chairs, and storage solutions designed for modern corporate environments.',
+      image:
+        'https://readdy.ai/api/search-image?query=Luxury%20executive%20office%20furniture%20collection%20with%20premium%20wooden%20desk%2C%20leather%20executive%20chair%2C%20and%20modern%20storage%20cabinets%2C%20sophisticated%20corporate%20interior%20design%2C%20high-end%20office%20furniture%20showroom&width=400&height=300&seq=exec-office&orientation=landscape',
+      catalogName: 'Executive Office Catalog',
     },
     {
-      name: "Residential Living Sets",
-      description: "Contemporary living room furniture including sofas, coffee tables, and entertainment units.",
-      image: "https://readdy.ai/api/search-image?query=Modern%20residential%20living%20room%20furniture%20set%20with%20contemporary%20sofa%2C%20coffee%20table%2C%20and%20entertainment%20unit%2C%20elegant%20home%20interior%20design%2C%20premium%20furniture%20collection&width=400&height=300&seq=living-set&orientation=landscape",
-      catalogName: "Residential Living Catalog"
+      name: 'Residential Living Sets',
+      description:
+        'Contemporary living room furniture including sofas, coffee tables, and entertainment units.',
+      image:
+        'https://readdy.ai/api/search-image?query=Modern%20residential%20living%20room%20furniture%20set%20with%20contemporary%20sofa%2C%20coffee%20table%2C%20and%20entertainment%20unit%2C%20elegant%20home%20interior%20design%2C%20premium%20furniture%20collection&width=400&height=300&seq=living-set&orientation=landscape',
+      catalogName: 'Residential Living Catalog',
     },
     {
-      name: "Hotel & Hospitality",
-      description: "Complete furniture solutions for hotels, restaurants, and hospitality venues worldwide.",
-      image: "https://readdy.ai/api/search-image?query=Luxury%20hotel%20furniture%20collection%20with%20elegant%20bedroom%20sets%2C%20restaurant%20dining%20furniture%2C%20and%20hospitality%20interior%20design%2C%20premium%20hotel%20room%20furniture&width=400&height=300&seq=hotel-furniture&orientation=landscape",
-      catalogName: "Hotel & Hospitality Catalog"
+      name: 'Hotel & Hospitality',
+      description:
+        'Complete furniture solutions for hotels, restaurants, and hospitality venues worldwide.',
+      image:
+        'https://readdy.ai/api/search-image?query=Luxury%20hotel%20furniture%20collection%20with%20elegant%20bedroom%20sets%2C%20restaurant%20dining%20furniture%2C%20and%20hospitality%20interior%20design%2C%20premium%20hotel%20room%20furniture&width=400&height=300&seq=hotel-furniture&orientation=landscape',
+      catalogName: 'Hotel & Hospitality Catalog',
     },
     {
-      name: "Custom Interior Design",
-      description: "Bespoke furniture pieces and complete interior solutions tailored to client specifications.",
-      image: "https://readdy.ai/api/search-image?query=Custom%20interior%20design%20showcase%20with%20bespoke%20furniture%20pieces%2C%20tailored%20interior%20solutions%2C%20luxury%20home%20design%2C%20personalized%20furniture%20collection&width=400&height=300&seq=custom-design&orientation=landscape",
-      catalogName: "Custom Design Catalog"
-    }
+      name: 'Custom Interior Design',
+      description:
+        'Bespoke furniture pieces and complete interior solutions tailored to client specifications.',
+      image:
+        'https://readdy.ai/api/search-image?query=Custom%20interior%20design%20showcase%20with%20bespoke%20furniture%20pieces%2C%20tailored%20interior%20solutions%2C%20luxury%20home%20design%2C%20personalized%20furniture%20collection&width=400&height=300&seq=custom-design&orientation=landscape',
+      catalogName: 'Custom Design Catalog',
+    },
   ];
 
   const services = [
     {
-      icon: "ri-pencil-ruler-2-line",
-      title: "Interior Design Consultation",
-      description: "Professional design consultation services to create functional and aesthetic spaces."
+      icon: 'ri-pencil-ruler-2-line',
+      title: 'Interior Design Consultation',
+      description:
+        'Professional design consultation services to create functional and aesthetic spaces.',
     },
     {
-      icon: "ri-hammer-line",
-      title: "Custom Manufacturing",
-      description: "Bespoke furniture manufacturing using premium materials and craftsmanship."
+      icon: 'ri-hammer-line',
+      title: 'Custom Manufacturing',
+      description: 'Bespoke furniture manufacturing using premium materials and craftsmanship.',
     },
     {
-      icon: "ri-truck-line",
-      title: "Installation & Delivery",
-      description: "Complete installation and delivery services for residential and commercial projects."
+      icon: 'ri-truck-line',
+      title: 'Installation & Delivery',
+      description:
+        'Complete installation and delivery services for residential and commercial projects.',
     },
     {
-      icon: "ri-customer-service-2-line",
-      title: "After-Sales Support",
-      description: "Comprehensive warranty and maintenance services for all furniture pieces."
-    }
+      icon: 'ri-customer-service-2-line',
+      title: 'After-Sales Support',
+      description: 'Comprehensive warranty and maintenance services for all furniture pieces.',
+    },
   ];
 
-  const handleDownloadCatalog = (catalogName: string) => {
-    setSelectedCatalog(catalogName);
-    setFormData(prev => ({ ...prev, catalog: catalogName }));
-    setShowModal(true);
-  };
+  // const handleDownloadCatalog = (catalogName: string) => {
+  //   setSelectedCatalog(catalogName);
+  //   setFormData((prev) => ({ ...prev, catalog: catalogName }));
+  //   setShowModal(true);
+  // };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('');
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+  //   setSubmitStatus('');
 
-    try {
-      const response = await fetch('https://readdy.ai/api/form/submit/catalog-download', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData).toString()
-      });
+  //   try {
+  //     const response = await fetch('https://readdy.ai/api/form/submit/catalog-download', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/x-www-form-urlencoded',
+  //       },
+  //       body: new URLSearchParams(formData).toString(),
+  //     });
 
-      if (response.ok) {
-        setSubmitStatus('Thank you! Your catalog download will begin shortly.');
-        // Simulate catalog download
-        setTimeout(() => {
-          const link = document.createElement('a');
-          link.href = '#';
-          link.download = `${selectedCatalog}.pdf`;
-          link.click();
-          setShowModal(false);
-          setFormData({
-            name: '',
-            email: '',
-            company: '',
-            phone: '',
-            catalog: ''
-          });
-          setSubmitStatus('');
-        }, 2000);
-      } else {
-        setSubmitStatus('There was an error processing your request. Please try again.');
-      }
-    } catch (error) {
-      setSubmitStatus('There was an error processing your request. Please try again.');
-    }
+  //     if (response.ok) {
+  //       setSubmitStatus('Thank you! Your catalog download will begin shortly.');
+  //       // Simulate catalog download
+  //       setTimeout(() => {
+  //         const link = document.createElement('a');
+  //         link.href = '#';
+  //         link.download = `${selectedCatalog}.pdf`;
+  //         link.click();
+  //         setShowModal(false);
+  //         setFormData({
+  //           name: '',
+  //           email: '',
+  //           company: '',
+  //           phone: '',
+  //           catalog: '',
+  //         });
+  //         setSubmitStatus('');
+  //       }, 2000);
+  //     } else {
+  //       setSubmitStatus('There was an error processing your request. Please try again.');
+  //     }
+  //   } catch (error) {
+  //     setSubmitStatus('There was an error processing your request. Please try again.');
+  //   }
 
-    setIsSubmitting(false);
-  };
+  //   setIsSubmitting(false);
+  // };
 
   return (
     <>
@@ -149,29 +179,46 @@ export default function DaranFurniturePage() {
       />
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section 
-          className="relative py-32 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://readdy.ai/api/search-image?query=Luxury%20furniture%20showroom%20with%20modern%20contemporary%20furniture%20pieces%2C%20elegant%20interior%20design%2C%20premium%20furniture%20collection%2C%20sophisticated%20lighting%2C%20clean%20minimalist%20aesthetic%20with%20warm%20wooden%20tones&width=1920&height=600&seq=furniture-hero&orientation=landscape')`
-          }}
-        >
-          <div className="container mx-auto px-6">
+        <section className="relative py-32 overflow-hidden">
+          {/* Background Video */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          >
+            <source src="/bg_daranfurniture.mp4" type="video/mp4" />
+          </video>
+
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+
+          {/* Content */}
+          <div className="relative z-20 container mx-auto px-6">
             <div className="max-w-4xl text-white">
               <div className="mb-6">
-                <Link href="/companies" className="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition-colors">
+                <Link
+                  href="/companies"
+                  className="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition-colors"
+                >
                   <i className="ri-arrow-left-line mr-2"></i>
                   Back to Companies
                 </Link>
               </div>
+
               <h1 className="text-5xl md:text-6xl font-bold mb-6">Daran Furniture</h1>
+
               <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-                Premium furniture and interior design solutions for residential and commercial spaces, 
-                combining functionality with aesthetic excellence.
+                Premium furniture and interior design solutions for residential and commercial
+                spaces, combining functionality with aesthetic excellence.
               </p>
+
               <div className="flex flex-wrap gap-4">
                 <button className="bg-red-800 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap">
                   View Catalog
                 </button>
+
                 <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap">
                   Request Quote
                 </button>
@@ -185,30 +232,36 @@ export default function DaranFurniturePage() {
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">Crafting Excellence Since 1998</h2>
+                <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                  Crafting Excellence Since 2023
+                </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Daran Furniture has been at the forefront of premium furniture manufacturing and interior design 
-                  for over two decades. We specialize in creating bespoke furniture pieces and complete interior 
-                  solutions for luxury homes, hotels, and corporate offices.
+                  Daran Furniture has been at the forefront of premium furniture manufacturing and
+                  interior design for over two decades. We specialize in creating bespoke furniture
+                  pieces and complete interior solutions for luxury homes, hotels, and corporate
+                  offices.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Our commitment to quality craftsmanship, innovative design, and customer satisfaction has made 
-                  us a trusted partner for clients across residential and commercial sectors worldwide.
+                  Our commitment to quality craftsmanship, innovative design, and customer
+                  satisfaction has made us a trusted partner for clients across residential and
+                  commercial sectors worldwide.
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <div className="text-3xl font-bold text-red-800 mb-2">500+</div>
+                    <div className="text-3xl font-bold text-red-800 mb-2">50+</div>
                     <div className="text-gray-600">Projects Completed</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-red-800 mb-2">25+</div>
+                    <div className="text-3xl font-bold text-red-800 mb-2">
+                      +{new Date().getFullYear() - 2023}
+                    </div>
                     <div className="text-gray-600">Years Experience</div>
                   </div>
                 </div>
               </div>
               <div className="relative">
-                <img 
-                  src="https://readdy.ai/api/search-image?query=Professional%20furniture%20craftsman%20working%20on%20premium%20wooden%20furniture%20piece%20in%20modern%20workshop%2C%20skilled%20artisan%20crafting%20luxury%20furniture%2C%20woodworking%20expertise%2C%20quality%20furniture%20manufacturing&width=600&height=500&seq=craftsman&orientation=portrait"
+                <img
+                  src="/workshop.png"
                   alt="Furniture Craftsmanship"
                   className="rounded-lg shadow-lg object-cover w-full h-96"
                 />
@@ -223,15 +276,18 @@ export default function DaranFurniturePage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Product Collections</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover our comprehensive range of furniture solutions designed to meet diverse needs 
-                across residential and commercial spaces.
+                Discover our comprehensive range of furniture solutions designed to meet diverse
+                needs across residential and commercial spaces.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {products.map((product, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                  <img 
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                  <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-64 object-cover object-top"
@@ -239,8 +295,8 @@ export default function DaranFurniturePage() {
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-3">{product.name}</h3>
                     <p className="text-gray-600 mb-4 leading-relaxed">{product.description}</p>
-                    <button 
-                      onClick={() => handleDownloadCatalog(product.catalogName)}
+                    <button
+                      // onClick={() => handleDownloadCatalog(product.catalogName)}
                       className="inline-flex items-center bg-red-800 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
                     >
                       <i className="ri-download-line mr-2"></i>
@@ -259,16 +315,18 @@ export default function DaranFurniturePage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From initial consultation to final installation, we provide comprehensive services 
+                From initial consultation to final installation, we provide comprehensive services
                 to bring your vision to life.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {services.map((service, index) => (
                 <div key={index} className="text-center group">
                   <div className="w-16 h-16 flex items-center justify-center bg-red-100 rounded-full mx-auto mb-4 group-hover:bg-red-800 transition-colors">
-                    <i className={`${service.icon} text-2xl text-red-800 group-hover:text-white transition-colors`}></i>
+                    <i
+                      className={`${service.icon} text-2xl text-red-800 group-hover:text-white transition-colors`}
+                    ></i>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{service.description}</p>
@@ -282,19 +340,19 @@ export default function DaranFurniturePage() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="relative">
-                <img 
+              {/* <div className="relative">
+                <img
                   src="https://readdy.ai/api/search-image?query=Quality%20control%20inspection%20of%20premium%20furniture%20pieces%2C%20furniture%20quality%20testing%20laboratory%2C%20professional%20quality%20assurance%20process%2C%20certified%20furniture%20manufacturing%20standards&width=600&height=500&seq=quality-control&orientation=portrait"
                   alt="Quality Control"
                   className="rounded-lg shadow-lg object-cover w-full h-96"
                 />
-              </div>
+              </div> */}
               <div>
                 <h2 className="text-4xl font-bold text-gray-900 mb-6">Quality & Certifications</h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Our commitment to quality is reflected in our rigorous manufacturing processes and 
-                  international certifications. Every piece of furniture undergoes comprehensive quality 
-                  testing to ensure durability and safety.
+                  Our commitment to quality is reflected in our rigorous manufacturing processes and
+                  international certifications. Every piece of furniture undergoes comprehensive
+                  quality testing to ensure durability and safety.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center">
@@ -332,7 +390,7 @@ export default function DaranFurniturePage() {
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Space?</h2>
             <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
-              Contact our design experts today to discuss your furniture and interior design needs. 
+              Contact our design experts today to discuss your furniture and interior design needs.
               Let us help you create spaces that inspire and impress.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -347,7 +405,7 @@ export default function DaranFurniturePage() {
         </section>
 
         {/* Contact Form Modal */}
-        {showModal && (
+        {/* {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
               <div className="p-6">
@@ -447,7 +505,7 @@ export default function DaranFurniturePage() {
               </div>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </>
   );
